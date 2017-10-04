@@ -28,10 +28,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['action']=="signup") {
         if ($result) {
 
             $row = $result->fetch_assoc();
-            $studentId = $row["id"];
-            $query = "INSERT into `students` (studentId) VALUES ($studentId)";
-            $result = mysqli_query($con, $query);
-            if ($result) {
+            $userId = $row["id"];
+            if($row["type"]=="student"){
+                $query = "INSERT into `students` (studentId) VALUES ($userId)";
+                $result = mysqli_query($con, $query);
+                $flag=1;
+            }else if($row["type"]=="faculty"){
+                $query = "INSERT into `faculty` (facultyId) VALUES ($userId)";
+                $result = mysqli_query($con, $query);
+                $flag=1;
+            }
+            
+            if ($flag) {
                 $color="w3-green";
                 $display="block";
                 $headm="Success!";

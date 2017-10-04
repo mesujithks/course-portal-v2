@@ -18,7 +18,7 @@
 
                 $_SESSION['username'] = $username;
                 $row=$result->fetch_assoc();
-                $_SESSION['user_id'] = $row["id"];
+                $_SESSION['user_id']=$row["id"];
 
                 switch($row["type"]){
                     case "admin": header("Location: admin/index.php"); break;

@@ -10,7 +10,7 @@ if(!isset($_SESSION["username"])){
 		exit();	
 	}*/
  }
-else {
+else {/*
 		$username=$_SESSION["username"];
 		$query = "SELECT * FROM `users` WHERE username='$username'";
 		$result = mysqli_query($con,$query) or die(mysql_error());
@@ -29,6 +29,6 @@ else {
 		}
 		else {
 			echo mysqli_error();
-			}
+			}*/
 }
 ?>

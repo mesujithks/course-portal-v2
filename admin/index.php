@@ -6,6 +6,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <?php 
 	require("connection.php");
+	session_start();
+	$con = mysqli_connect("localhost","root","admin","asd-project");
+	$query="SELECT * FROM `notification` WHERE user_to='1' AND status='active'";
+	$result = mysqli_query($con,$query) or die(mysqli_error());
+	$notifc=mysqli_num_rows($result);
+    while($row=$result->fetch_assoc()){
+		$notif_list.='
+		<li><a href="index.php?page='.$row['page'].'">
+				<div class="user_img"><img src="../images/avatar.png" alt=""></div>
+				<div class="notification_desc">
+					<p>'.$row['heading'].'</p>
+					<p><span>'.$row['time'].'</span></p>
+				</div>
+				<div class="clearfix"></div>	
+			</a>
+		</li>';
+
+	}
+	
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -30,6 +49,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- lined-icons -->
 <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
 <!-- //lined-icons -->
+<style>
+	.four i.glyphicon {
+    color: #fff;
+    font-size: 32px;
+}
+.four h3 {
+    font-size: 20px;
+    color: #fff;
+    margin: 14px 0;
+}
+.four h4 {
+    font-size: 30px;
+    color: #fff;
+    margin: 0;
+}
+</style>
 </head> 
 <body>
    <div class="page-container">
@@ -38,13 +73,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	   <div class="mother-grid-inner">
              <!--header start here-->
 				<div class="header-main">
-					<div class="logo-w3-agile">
-								<h1><a href="index.php">Course Portal</a></h1>
+					<div class="logo-w3-agile w3-pink w3-text-white w3-card-2">
+								<img src="images/logo.png" width="50px" height="50px"><b>  Course Portal</b>
 							</div>
-					<div class="w3layouts-left">
+					<div class="w3layouts-left w3-card-2">
 							
 							<!--search-box-->
-								<div class="w3-search-box">
+								<div class="w3-search-box w3-card-2">
 									<form action="#" method="post">
 										<input type="text" placeholder="Search..." required="">	
 										<input type="submit" value="">					
@@ -52,8 +87,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								</div><!--//end-search-box-->
 							<div class="clearfix"> </div>
 						 </div>
-						 <div class="w3layouts-right">
-							<div class="profile_details_left"><!--notifications of menu start -->
+						 <div class="w3layouts-right w3-card-2">
+							<div class="profile_details_left "><!--notifications of menu start -->
 								<ul class="nofitications-dropdown">
 									<li class="dropdown head-dpdn">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-envelope"></i><span class="badge">3</span></a>
@@ -95,40 +130,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										</ul>
 									</li>
 									<li class="dropdown head-dpdn">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i><span class="badge blue">3</span></a>
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i><span class="badge blue"><?php echo $notifc; ?></span></a>
 										<ul class="dropdown-menu">
 											<li>
 												<div class="notification_header">
-													<h3>You have 3 new notification</h3>
+													<h3>You have <?php echo $notifc; ?> new notification</h3>
 												</div>
 											</li>
-											<li><a href="#">
-												<div class="user_img"><img src="images/in8.jpg" alt=""></div>
-											   <div class="notification_desc">
-												<p>Lorem ipsum dolor</p>
-												<p><span>1 hour ago</span></p>
-												</div>
-											  <div class="clearfix"></div>	
-											 </a></li>
-											 <li class="odd"><a href="#">
-												<div class="user_img"><img src="images/in6.jpg" alt=""></div>
-											   <div class="notification_desc">
-												<p>Lorem ipsum dolor</p>
-												<p><span>1 hour ago</span></p>
-												</div>
-											   <div class="clearfix"></div>	
-											 </a></li>
-											 <li><a href="#">
-												<div class="user_img"><img src="images/in7.jpg" alt=""></div>
-											   <div class="notification_desc">
-												<p>Lorem ipsum dolor</p>
-												<p><span>1 hour ago</span></p>
-												</div>
-											   <div class="clearfix"></div>	
-											 </a></li>
+											<?php echo $notif_list; ?>
 											 <li>
 												<div class="notification_bottom">
-													<a href="#">See all notifications</a>
+													<a href="index.php?page=notifications">See all notifications</a>
 												</div> 
 											</li>
 										</ul>
@@ -192,7 +204,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							
 							<div class="clearfix"> </div>				
 						</div>
-						<div class="profile_details w3l">		
+						<div class="profile_details w3l w3-card-2">		
 								<ul>
 									<li class="dropdown profile_details_drop">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -222,9 +234,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
  <!-- container-->
  <?php 
 		@$page=  $_GET['page'];
+		$data= $_GET['data'];
+		$edit=$_GET['edit'];
 		  if($page!="")
 		  {
-		  	if($page=="update_password")
+			switch($page){
+				case "course": include('course.php'); break;
+				case "course-add":	include("course-add.php");  break;
+				case "faculty-request":	include("faculty-request.php");  break;
+			}
+		  	/*if($page=="update_password")
 			{
 				include('update_password.php');
 			
@@ -243,7 +262,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			{
 				include('update_profile_pic.php');
 			
-			}
+			}*/
 		  }
 		  else
 		  {
@@ -278,7 +297,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </div>
 <!--inner block end here-->
 <!--copy rights start here-->
-<div class="copyrights">
+<br />
+<div class="copyrights w3-card-2 w3-row">
+
 	 <p>© 2016 Pooled. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
 </div>	
 <!--COPY rights end here-->
@@ -293,44 +314,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
                            <div class="menu">
 									<ul id="menu" >
-										<li><a href="index.php"><i class="fa fa-tachometer"></i> <span>Dashboard</span><div class="clearfix"></div></a></li>
+										<li><a href="index.php"><i class="fa fa-tachometer"></i> <span title="Dashboard">Dashboard</span><div class="clearfix"></div></a></li>
 										
 										
-										 <li id="menu-academico" ><a href="inbox.php"><i class="fa fa-envelope nav_icon"></i><span>Inbox</span><div class="clearfix"></div></a></li>
-										 <li><a href="notification.php"><i class="fa fa-bell" aria-hidden="true"></i><span>Notifications</span><div class="clearfix"></div></a></li>
-									<li><a href="gallery.php"><i class="fa fa-picture-o" aria-hidden="true"></i><span>Gallery</span><div class="clearfix"></div></a></li>
-									<li id="menu-academico" ><a href="charts.php"><i class="fa fa-bar-chart"></i><span>Charts</span><div class="clearfix"></div></a></li>
-									 <li id="menu-academico" ><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i><span> Short Codes</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
-										   <ul id="menu-academico-sub" >
-										   <li id="menu-academico-avaliacoes" ><a href="icons.php">Icons</a></li>
-											<li id="menu-academico-avaliacoes" ><a href="typography.php">Typography</a></li>
-											<li id="menu-academico-avaliacoes" ><a href="faq.php">Faq</a></li>
-										  </ul>
-										</li>
-									<li id="menu-academico" ><a href="errorpage.php"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span>Error Page</span><div class="clearfix"></div></a></li>
-									  <li id="menu-academico" ><a href="#"><i class="fa fa-cogs" aria-hidden="true"></i><span> UI Components</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
-										   <ul id="menu-academico-sub" >
-										   <li id="menu-academico-avaliacoes" ><a href="button.php">Buttons</a></li>
-											<li id="menu-academico-avaliacoes" ><a href="grid.php">Grids</a></li>
-										  </ul>
-										</li>
-									 <li><a href="tabels.php"><i class="fa fa-table"></i>  <span>Tables</span><div class="clearfix"></div></a></li>
-									<li><a href="maps.php"><i class="fa fa-map-marker" aria-hidden="true"></i>  <span>Maps</span><div class="clearfix"></div></a></li>
-							        <li id="menu-academico" ><a href="#"><i class="fa fa-file-text-o"></i>  <span>Pages</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
+										 <li id="menu-academico" ><a href="inbox.php"><i class="fa fa-envelope nav_icon"></i><span title="Inbox">Inbox</span><div class="clearfix"></div></a></li>
+										 <li><a href="notification.php"><i class="fa fa-bell" aria-hidden="true"></i><span title="Notifications">Notifications</span><div class="clearfix"></div></a></li>
+										 <li><a href="notice.php"><i class="fa fa-file-text" aria-hidden="true"></i><span title="Notice">Notice</span><div class="clearfix"></div></a></li>
+										 <li><a href="faculty.php"><i class="fa fa-user" aria-hidden="true"></i><span title="Faculty">Faculty</span><div class="clearfix"></div></a></li>
+										 <li><a href="student.php"><i class="fa fa-user" aria-hidden="true"></i><span title="Students">Students</span><div class="clearfix"></div></a></li>
+										 <li><a href="index.php?page=course"><i class="fa fa-folder-open" aria-hidden="true"></i><span title="Courses">Courses</span><div class="clearfix"></div></a></li>
+										 <li><a href="exam.php"><i class="fa fa-calendar" aria-hidden="true"></i><span title="Exams">Exams</span><div class="clearfix"></div></a></li>
+										 <li><a href="disscussion.php"><i class="fa fa-bullhorn" aria-hidden="true"></i><span title="Disscussion">Disscussion Forum</span><div class="clearfix"></div></a></li>
+										 <li><a href="chat.php"><i class="fa fa-comment" aria-hidden="true"></i><span title="Chats">Chats</span><div class="clearfix"></div></a></li>
+									
+						
+							        <li id="menu-academico" ><a href="#"><i class="fa fa-gear"></i>  <span>Account</span> <span class="fa fa-angle-right" style="float: right" title="Account"></span><div class="clearfix"></div></a>
 										 <ul id="menu-academico-sub" >
-											<li id="menu-academico-boletim" ><a href="calendar.php">Calendar</a></li>
-											<li id="menu-academico-avaliacoes" ><a href="signin.php">Sign In</a></li>
-											<li id="menu-academico-avaliacoes" ><a href="signup.php">Sign Up</a></li>
-											
-
+											<li id="menu-academico-boletim" ><a href="settings.php">Settings</a></li>
+											<li id="menu-academico-avaliacoes" ><a href="../logout.php">Logout</a></li>
 										  </ul>
 									 </li>
-									<li><a href="#"><i class="fa fa-check-square-o nav_icon"></i><span>Forms</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
-									  <ul>
-										<li><a href="input.php"> Input</a></li>
-										<li><a href="validation.php">Validation</a></li>
-									</ul>
-									</li>
+				
 								  </ul>
 								</div>
 							  </div>
