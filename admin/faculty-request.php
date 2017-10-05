@@ -25,9 +25,8 @@
                                 <strong>Phone : </strong>'.$row1['mobile'].'
                             </p> 
             
-                            <a class="w3-button w3-green" style="margin-left:12px;margin-top:12px" href="request.php?id='.$fid.'&action=approved&nid='.$nid.'">APPROVE</a>&nbsp &nbsp &nbsp
-                            <a class="w3-button w3-red" style="margin-right:12px;margin-top:12px" href="">DELETE</a>
-                            &nbsp &nbsp &nbsp
+                            <a class="w3-button w3-green" style="margin-left:12px;margin-top:12px;margin-bottom:12px" href="request.php?id='.$fid.'&action=approved&nid='.$nid.'">APPROVE</a>&nbsp &nbsp &nbsp
+                            <a class="w3-button w3-red" style="margin-right:12px;margin-top:12px;margin-bottom:12px" href="">DELETE</a>
                         </div>
                      </div>
                 </div>';
@@ -42,7 +41,7 @@
     }
 ?>
 <ol class="breadcrumb w3-card-2">
-                <li class="breadcrumb-item"><a href="index.php">Home</a> <i class="fa fa-angle-right"></i> Course</li>
+                <li class="breadcrumb-item"><a href="index.php">Home</a> <i class="fa fa-angle-right"></i><a href="index.php?page=faculty">Faculty</a> <i class="fa fa-angle-right"></i> Faculty Request</li>
             </ol>
 <!--four-grids here-->
 
@@ -53,4 +52,5 @@
     <div class="w3-container">
         <?php echo $card; ?>
     </div>
+</div><br />
 </div>

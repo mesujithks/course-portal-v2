@@ -7,7 +7,7 @@
 		<div class="w3-row">
 			<div class="w3-third">
 					<div class="w3-card-4 four" style="width:92%;max-width:500px;">
-                        <a href="student.php">
+                        <a href="index.php?page=student">
 						<div class="four-agileits">
 							<div class="icon">
 								<i class="glyphicon glyphicon-user" aria-hidden="true"></i>
@@ -23,7 +23,7 @@
 			</div>
 			<div class="w3-third">
 					<div class="w3-card-4 four" style="width:92%;max-width:500px;">
-                        <a href="faculty.php">
+                        <a href="index.php?page=faculty">
 						<div class="four-agileinfo">
 							<div class="icon">
 								<i class="glyphicon glyphicon-user" aria-hidden="true"></i>
@@ -58,7 +58,7 @@
 		<div class="w3-row"><br />
 				<div class="w3-third">
 					<div class="w3-card-4 four" style="width:92%;max-width:500px;">
-                        <a href="exam.php">
+                        <a href="index.php?page=exam">
 						<div class="four-agileits w3-brown">
 							<div class="icon">
 							<i class="glyphicon glyphicon-calendar" aria-hidden="true"></i>
@@ -74,7 +74,7 @@
 				</div> 
 				<div class="w3-third">
 					<div class="w3-card-4 four" style="width:92%;max-width:500px;">
-                        <a href="disscussion.php">
+                        <a href="index.php?page=disscussion">
 						<div class="four-agileinfo w3-pink">
 							<div class="icon">
 								<i class="glyphicon glyphicon-bullhorn" aria-hidden="true"></i>
@@ -90,7 +90,7 @@
 				</div>
 				<div class="w3-third">
 					<div class="w3-card-4 four" style="width:92%;max-width:500px;">
-                     <a href="chat.php">
+                     <a href="index.php?page=chat">
 						<div class="four-agileinfo w3-teal">
 							<div class="icon">
 								<i class="glyphicon glyphicon-comment" aria-hidden="true"></i>

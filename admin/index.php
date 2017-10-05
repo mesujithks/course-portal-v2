@@ -234,14 +234,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
  <!-- container-->
  <?php 
 		@$page=  $_GET['page'];
-		$data= $_GET['data'];
-		$edit=$_GET['edit'];
 		  if($page!="")
 		  {
 			switch($page){
 				case "course": include('course.php'); break;
-				case "course-add":	include("course-add.php");  break;
-				case "faculty-request":	include("faculty-request.php");  break;
+				case "course-add":	include("course-add.php"); break;
+				case "faculty":	include("faculty.php"); break;
+				case "faculty-request":	include("faculty-request.php"); break;
+				case "student":	include("student.php"); break;
+				default : include("errorpage.php"); break;
 			}
 		  	/*if($page=="update_password")
 			{
@@ -317,15 +318,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										<li><a href="index.php"><i class="fa fa-tachometer"></i> <span title="Dashboard">Dashboard</span><div class="clearfix"></div></a></li>
 										
 										
-										 <li id="menu-academico" ><a href="inbox.php"><i class="fa fa-envelope nav_icon"></i><span title="Inbox">Inbox</span><div class="clearfix"></div></a></li>
-										 <li><a href="notification.php"><i class="fa fa-bell" aria-hidden="true"></i><span title="Notifications">Notifications</span><div class="clearfix"></div></a></li>
-										 <li><a href="notice.php"><i class="fa fa-file-text" aria-hidden="true"></i><span title="Notice">Notice</span><div class="clearfix"></div></a></li>
-										 <li><a href="faculty.php"><i class="fa fa-user" aria-hidden="true"></i><span title="Faculty">Faculty</span><div class="clearfix"></div></a></li>
-										 <li><a href="student.php"><i class="fa fa-user" aria-hidden="true"></i><span title="Students">Students</span><div class="clearfix"></div></a></li>
+										 <li id="menu-academico" ><a href="index.php?page=inbox"><i class="fa fa-envelope nav_icon"></i><span title="Inbox">Inbox</span><div class="clearfix"></div></a></li>
+										 <li><a href="index.php?page=notification"><i class="fa fa-bell" aria-hidden="true"></i><span title="Notifications">Notifications</span><div class="clearfix"></div></a></li>
+										 <li><a href="index.php?page=notice"><i class="fa fa-file-text" aria-hidden="true"></i><span title="Notice">Notice</span><div class="clearfix"></div></a></li>
+										 <li><a href="index.php?page=faculty"><i class="fa fa-user" aria-hidden="true"></i><span title="Faculty">Faculty</span><div class="clearfix"></div></a></li>
+										 <li><a href="index.php?page=student"><i class="fa fa-user" aria-hidden="true"></i><span title="Students">Students</span><div class="clearfix"></div></a></li>
 										 <li><a href="index.php?page=course"><i class="fa fa-folder-open" aria-hidden="true"></i><span title="Courses">Courses</span><div class="clearfix"></div></a></li>
-										 <li><a href="exam.php"><i class="fa fa-calendar" aria-hidden="true"></i><span title="Exams">Exams</span><div class="clearfix"></div></a></li>
-										 <li><a href="disscussion.php"><i class="fa fa-bullhorn" aria-hidden="true"></i><span title="Disscussion">Disscussion Forum</span><div class="clearfix"></div></a></li>
-										 <li><a href="chat.php"><i class="fa fa-comment" aria-hidden="true"></i><span title="Chats">Chats</span><div class="clearfix"></div></a></li>
+										 <li><a href="index.php?page=exam"><i class="fa fa-calendar" aria-hidden="true"></i><span title="Exams">Exams</span><div class="clearfix"></div></a></li>
+										 <li><a href="index.php?page=disscussion"><i class="fa fa-bullhorn" aria-hidden="true"></i><span title="Disscussion">Disscussion Forum</span><div class="clearfix"></div></a></li>
+										 <li><a href="index.php?page=chat"><i class="fa fa-comment" aria-hidden="true"></i><span title="Chats">Chats</span><div class="clearfix"></div></a></li>
 									
 						
 							        <li id="menu-academico" ><a href="#"><i class="fa fa-gear"></i>  <span>Account</span> <span class="fa fa-angle-right" style="float: right" title="Account"></span><div class="clearfix"></div></a>

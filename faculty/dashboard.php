@@ -4,9 +4,10 @@
                 <li class="breadcrumb-item"><a href="index.php">Home</a> <i class="fa fa-angle-right"></i> Dashboard</li>
             </ol>
 <!--four-grids here-->
-			<div class="four-grids">
-					<div class="col-md-4 four-grid w3-card-4">
-                        <a href="my-courses.php">
+		<div class="w3-row">
+			<div class="w3-third">
+					<div class="w3-card-4 four" style="width:92%;max-width:500px;">
+                        <a href="index.php?page=my-course">
 						<div class="four-agileits">
 							<div class="icon">
 								<i class="glyphicon glyphicon-list" aria-hidden="true"></i>
@@ -18,9 +19,11 @@
 							</div>
 							</a>
 						</div>
-					</div>
-					<div class="col-md-4 four-grid w3-card-4">
-                        <a href="faculty.php">
+					</div><br />
+			</div>
+			<div class="w3-third">
+					<div class="w3-card-4 four" style="width:92%;max-width:500px;">
+                        <a href="index.php?page=student">
 						<div class="four-agileinfo">
 							<div class="icon">
 								<i class="glyphicon glyphicon-user" aria-hidden="true"></i>
@@ -30,28 +33,32 @@
 								<h4><?php echo $scnt; ?></h4>
 
 							</div>
-							
+						</a>
 						</div>
-					</div>
-					<div class="col-md-4 four-grid w3-card-4">
-                    <a href="course.php">
+					</div><br />
+			</div> 
+			<div class="w3-third">
+					<div class="w3-card-4 four" style="width:92%;max-width:500px;">
+                    <a href="index.php?page=course">
 						<div class="four-w3ls">
 							<div class="icon">
 								<i class="glyphicon glyphicon-folder-open" aria-hidden="true"></i>
 							</div>
 							<div class="four-text">
-								<h3>All Courses</h3>
+								<h3>Courses</h3>
 								<h4><?php echo $crscnt; ?></h4>
 								
 							</div>
 							</a>
 						</div>
 					</div>
+			</div> 
 					<div class="clearfix"></div>
-				</div>
-				<div class="four-grids">
-					<div class="col-md-4 four-grid w3-card-4">
-                        <a href="exam.php">
+		</div>
+		<div class="w3-row"><br />
+				<div class="w3-third">
+					<div class="w3-card-4 four" style="width:92%;max-width:500px;">
+                        <a href="index.php?page=exam">
 						<div class="four-agileits w3-brown">
 							<div class="icon">
 							<i class="glyphicon glyphicon-calendar" aria-hidden="true"></i>
@@ -63,9 +70,11 @@
 							</div>
 							</a>
 						</div>
-					</div>
-					<div class="col-md-4 four-grid w3-card-4">
-                        <a href="disscussion.php">
+					</div><br />
+				</div> 
+				<div class="w3-third">
+					<div class="w3-card-4 four" style="width:92%;max-width:500px;">
+                        <a href="index.php?page=disscussion">
 						<div class="four-agileinfo w3-pink">
 							<div class="icon">
 								<i class="glyphicon glyphicon-bullhorn" aria-hidden="true"></i>
@@ -77,11 +86,12 @@
 							</div>
 							</a>
 						</div>
-					</div>
-
-					<div class="col-md-4 four-grid w3-card-4">
-                     <a href="chat.php">
-						<div class="four-wthree  w3-teal">
+					</div><br />
+				</div>
+				<div class="w3-third">
+					<div class="w3-card-4 four" style="width:92%;max-width:500px;">
+                     <a href="index.php?page=chat">
+						<div class="four-agileinfo w3-teal">
 							<div class="icon">
 								<i class="glyphicon glyphicon-comment" aria-hidden="true"></i>
 							</div>
@@ -92,7 +102,7 @@
 							</div>
 							</a>
 						</div>
-					</div>
-					<div class="clearfix"></div>
+					</div><br />
 				</div>
-			
+					<div class="clearfix"></div>
+			</div>

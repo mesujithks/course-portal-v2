@@ -1,7 +1,8 @@
 <?php
   $cname=$shortD=$longD=$smsg="";
   $sstatus="w3-hide";
-  $edit= $_COOKIE["cedit"];
+  extract($_GET);
+  $edit= $eid;
   $hiden='<input type="hidden" name="action" value="add">';
   $con = mysqli_connect("localhost","root","admin","asd-project");
 
@@ -26,7 +27,7 @@
   }
 
   if($edit!=""){
-    setcookie("cedit", "", time()-60, "/","", 0);
+    //setcookie("cedit", "", time()-60, "/","", 0);
     $query="SELECT * FROM `courses` WHERE courseId=$edit";
     $result = mysqli_query($con,$query) or die(mysqli_error());
     $row=$result->fetch_assoc();
@@ -40,7 +41,7 @@
 ?>
 
 <ol class="breadcrumb w3-card-2">
-                <li class="breadcrumb-item"><a href="index.php">Home</a><i class="fa fa-angle-right"></i><a href="index.php?page=course">Courses</a><i class="fa fa-angle-right"></i>Add Course</li>
+                <li class="breadcrumb-item"><a href="index.php">Home</a><i class="fa fa-angle-right"></i><a href="index.php?page=course">Courses</a><i class="fa fa-angle-right"></i>Add/Edit Course</li>
             </ol>
 <!--grid-->
 <div class="w3-panel w3-green w3-round <?php echo $sstatus; ?>">

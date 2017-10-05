@@ -63,6 +63,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- lined-icons -->
 <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
 <!-- //lined-icons -->
+<style>
+	.four i.glyphicon {
+    color: #fff;
+    font-size: 32px;
+}
+.four h3 {
+    font-size: 20px;
+    color: #fff;
+    margin: 14px 0;
+}
+.four h4 {
+    font-size: 30px;
+    color: #fff;
+    margin: 0;
+}
+</style>
 </head> 
 <body>
    <div class="page-container">
@@ -77,7 +93,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div class="w3layouts-left w3-card-2">
 							
 							<!--search-box-->
-								<div class="w3-search-box">
+								<div class="w3-search-box w3-card-2">
 									<form action="#" method="post">
 										<input type="text" placeholder="Search..." required="">	
 										<input type="submit" value="">					
@@ -257,25 +273,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		@$page=  $_GET['page'];
 		  if($page!="")
 		  {
-		  	if($page=="update_password")
-			{
-				include('update_password.php');
-			
-			}
-			if($page=="notification")
-			{
-				include('notification.php');
-			
-			}
-			if($page=="update_profile")
-			{
-				include('update_profile.php');
-			
-			}
-			if($page=="update_profile_pic")
-			{
-				include('update_profile_pic.php');
-			
+			switch($page){
+				case "course": include('course.php'); break;
+				case "course-add":	include("course-add.php"); break;
+				case "faculty":	include("faculty.php"); break;
+				case "faculty-request":	include("faculty-request.php"); break;
+				case "student":	include("student.php"); break;
+				default : include("errorpage.php"); break;
 			}
 		  }
 		  else
@@ -311,6 +315,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </div>
 <!--inner block end here-->
 <!--copy rights start here-->
+<br />
 <div class="copyrights ">
 	 <p>© 2016 Pooled. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
 </div>	
@@ -330,14 +335,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										
 										
 										 <li id="menu-academico" ><a href="inbox.php"><i class="fa fa-envelope nav_icon"></i><span title="Inbox">Inbox</span><div class="clearfix"></div></a></li>
-										 <li><a href="notification.php"><i class="fa fa-bell" aria-hidden="true"></i><span title="Notifications">Notifications</span><div class="clearfix"></div></a></li>
-										 <li><a href="notice.php"><i class="fa fa-file-text" aria-hidden="true"></i><span title="Notice">Notice</span><div class="clearfix"></div></a></li>
-										 <li><a href="my-courses.php"><i class="fa fa-list" aria-hidden="true"></i><span title="My Courses">My Courses</span><div class="clearfix"></div></a></li>
-										 <li><a href="student.php"><i class="fa fa-user" aria-hidden="true"></i><span title="Students">Students</span><div class="clearfix"></div></a></li>
-										 <li><a href="course.php"><i class="fa fa-folder-open" aria-hidden="true"></i><span title="All Courses">All Courses</span><div class="clearfix"></div></a></li>
-										 <li><a href="exam.php"><i class="fa fa-calendar" aria-hidden="true"></i><span title="Exams">Exams</span><div class="clearfix"></div></a></li>
-										 <li><a href="disscussion.php"><i class="fa fa-bullhorn" aria-hidden="true"></i><span title="Disscussion">Disscussion Forum</span><div class="clearfix"></div></a></li>
-										 <li><a href="chat.php"><i class="fa fa-comment" aria-hidden="true"></i><span title="Chats">Chats</span><div class="clearfix"></div></a></li>
+										 <li><a href="index.php?page=notification"><i class="fa fa-bell" aria-hidden="true"></i><span title="Notifications">Notifications</span><div class="clearfix"></div></a></li>
+										 <li><a href="index.php?page=notice"><i class="fa fa-file-text" aria-hidden="true"></i><span title="Notice">Notice</span><div class="clearfix"></div></a></li>
+										 <li><a href="index.php?page=my-courses"><i class="fa fa-list" aria-hidden="true"></i><span title="My Courses">My Courses</span><div class="clearfix"></div></a></li>
+										 <li><a href="index.php?page=student"><i class="fa fa-user" aria-hidden="true"></i><span title="Students">Students</span><div class="clearfix"></div></a></li>
+										 <li><a href="index.php?page=course"><i class="fa fa-folder-open" aria-hidden="true"></i><span title="All Courses">All Courses</span><div class="clearfix"></div></a></li>
+										 <li><a href="index.php?page=exam"><i class="fa fa-calendar" aria-hidden="true"></i><span title="Exams">Exams</span><div class="clearfix"></div></a></li>
+										 <li><a href="index.php?page=disscussion"><i class="fa fa-bullhorn" aria-hidden="true"></i><span title="Disscussion">Disscussion Forum</span><div class="clearfix"></div></a></li>
+										 <li><a href="index.php?page=chat"><i class="fa fa-comment" aria-hidden="true"></i><span title="Chats">Chats</span><div class="clearfix"></div></a></li>
 									
 						
 							        <li id="menu-academico" ><a href="#"><i class="fa fa-gear"></i>  <span>Account</span> <span class="fa fa-angle-right" style="float: right" title="Account"></span><div class="clearfix"></div></a>
