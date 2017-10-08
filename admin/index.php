@@ -6,7 +6,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <?php 
 	require("connection.php");
-	session_start();
+	require("../auth.php");
 	$con = mysqli_connect("localhost","root","admin","asd-project");
 	$query="SELECT * FROM `notification` WHERE user_to='1' AND status='active'";
 	$result = mysqli_query($con,$query) or die(mysqli_error());

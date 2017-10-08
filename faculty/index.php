@@ -6,7 +6,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <?php 
 	require('connection.php');
-	session_start();
+	require("../auth.php");
 
 	if(getStatus()!="approved")
 		$home="verify.php";

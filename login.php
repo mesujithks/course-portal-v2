@@ -1,5 +1,5 @@
 <?php
-	include("database/auth.php");
+	include("auth.php");
 	require('database/connection.php');
 	
 	$usenameErr=$passwordErr=$username=$password="";
@@ -19,7 +19,7 @@
                 $_SESSION['username'] = $username;
                 $row=$result->fetch_assoc();
                 $_SESSION['user_id']=$row["id"];
-
+                $_SESSION['type']=$row["type"];
                 switch($row["type"]){
                     case "admin": header("Location: admin/index.php"); break;
                     case "faculty": header("Location: faculty/index.php"); break;
