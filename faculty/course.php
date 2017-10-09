@@ -17,9 +17,8 @@
                                 <strong>Description : </strong>'.$row['shortD'].'<br />
                             </p> 
             
-                            <a class="w3-button w3-green" style="margin-left:12px;margin-top:12px;margin-bottom:12px" href="index.php?page=course-view&&id='.$cid.'">VIEW</a>
-                            <a class="w3-button w3-blue" style="margin-left:12px;margin-top:12px;margin-bottom:12px" href="index.php?page=course-add&&eid='.$cid.'">EDIT</a>
-                            <a class="w3-button w3-red" style="margin-left:12px;margin-top:12px;margin-bottom:12px" href="">DELETE</a>
+                            <a class="w3-button w3-blue" style="margin-left:12px;margin-top:12px;margin-bottom:12px" href="index.php?page=course-view&id='.$cid.'">VIEW</a>
+                            <a class="w3-button w3-green" style="margin-left:12px;margin-top:12px;margin-bottom:12px" href="index.php?page=course-view&id='.$cid.'&action=register">REGISTER</a>
                         </div>
                      </div>
                 </div>';
@@ -35,15 +34,6 @@
             </ol>
 <!--four-grids here-->
 <div class="w3-card-4" style="width:100%">
-<header class="w3-container w3-light-grey">
-<h3>Add New Course</h3>
-</header>
-<div class="w3-container">
-<p>CEO at Mighty Schools. Marketing and Advertising. Seeking a new job and new opportunities.</p><br>
-</div>
-<a class="w3-button w3-block w3-dark-grey w3-hover-blue" href="index.php?page=course-add">+ Add Course</a>
-</div><br />
-</div>
 
 <div class="w3-card-4">
 <header class="w3-container w3-light-grey">

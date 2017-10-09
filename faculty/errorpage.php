@@ -5,8 +5,8 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 
-<div class="w3-card-4" style="margin-top:12px;">
-	<div class="container">
+<div class="validation-system w3-card-4" style="margin-top:12px;">
+	<div class="container validation-form">
 		<div class="agile">
 			
 			<div class="w3l-txt">

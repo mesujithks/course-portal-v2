@@ -6,6 +6,7 @@
 	$result = mysqli_query($con,$query) or die(mysqli_error());
     while($row=$result->fetch_assoc()){
         $count+=1;
+        $fid=$row['id'];
         $card.='
                 <div class="w3-third">
                     <div class="w3-card-4" style="width:92%;max-width:300px;margin-top:12px;">
@@ -20,8 +21,8 @@
                                 <strong>Phone : </strong>'.$row['mobile'].'
                             </p> 
             
-                            <a class="w3-button w3-green" style="margin-left:12px;margin-top:12px;margin-bottom:12px" href="faculty-view.php?id='.$fid.'&action=approved&nid='.$nid.'">VIEW</a>&nbsp &nbsp &nbsp
-                            <a class="w3-button w3-red" style="margin-right:12px;margin-top:12px;margin-bottom:12px" href="">DELETE</a>
+                            <a class="w3-button w3-green" style="margin-left:12px;margin-top:12px;margin-bottom:12px" href="index.php?page=faculty-view&&id='.$fid.'">VIEW</a>
+                            <a class="w3-button w3-red" style="margin-left:12px;margin-top:12px;margin-bottom:12px" href="">DELETE</a>
                         </div>
                      </div>
                 </div>';

@@ -25,8 +25,8 @@
                                 <strong>Phone : </strong>'.$row1['mobile'].'
                             </p> 
             
-                            <a class="w3-button w3-green" style="margin-left:12px;margin-top:12px;margin-bottom:12px" href="request.php?id='.$fid.'&action=approved&nid='.$nid.'">APPROVE</a>&nbsp &nbsp &nbsp
-                            <a class="w3-button w3-red" style="margin-right:12px;margin-top:12px;margin-bottom:12px" href="">DELETE</a>
+                            <a class="w3-button w3-green" style="margin-left:12px;margin-top:12px;margin-bottom:12px" href="request.php?id='.$fid.'&action=approved&nid='.$nid.'">APPROVE</a>
+                            <a class="w3-button w3-red" style="margin-left:12px;margin-top:12px;margin-bottom:12px" href="">DELETE</a>
                         </div>
                      </div>
                 </div>';

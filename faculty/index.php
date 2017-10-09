@@ -275,7 +275,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		  {
 			switch($page){
 				case "course": include('course.php'); break;
-				case "course-add":	include("course-add.php"); break;
+				case "course-view":	include("course-view.php"); break;
 				case "faculty":	include("faculty.php"); break;
 				case "faculty-request":	include("faculty-request.php"); break;
 				case "student":	include("student.php"); break;
@@ -334,7 +334,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										<li><a href="index.php"><i class="fa fa-tachometer"></i> <span title="Dashboard">Dashboard</span><div class="clearfix"></div></a></li>
 										
 										
-										 <li id="menu-academico" ><a href="inbox.php"><i class="fa fa-envelope nav_icon"></i><span title="Inbox">Inbox</span><div class="clearfix"></div></a></li>
+										 <li id="menu-academico" ><a href="index.php?page=inbox"><i class="fa fa-envelope nav_icon"></i><span title="Inbox">Inbox</span><div class="clearfix"></div></a></li>
 										 <li><a href="index.php?page=notification"><i class="fa fa-bell" aria-hidden="true"></i><span title="Notifications">Notifications</span><div class="clearfix"></div></a></li>
 										 <li><a href="index.php?page=notice"><i class="fa fa-file-text" aria-hidden="true"></i><span title="Notice">Notice</span><div class="clearfix"></div></a></li>
 										 <li><a href="index.php?page=my-courses"><i class="fa fa-list" aria-hidden="true"></i><span title="My Courses">My Courses</span><div class="clearfix"></div></a></li>
